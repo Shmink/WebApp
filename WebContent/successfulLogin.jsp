@@ -17,8 +17,11 @@
 	
 	<h2>Compose</h2><br/>
 	<input type="submit" value="Log out">	<br/><br/>
-	Recipient: <input type="text" name="recipient"><br/><br/>
-	Subject: <input type="text" name="subject"><br/><br/>
-	Body: <textarea rows="8" cols="50" name="messageBody"></textarea><br/>	
+	<form action="SendMailController" method="POST">
+		Recipient: <input type="text" name="recipient"><br/><br/>
+		Subject: <input type="text" name="subject"><br/><br/>
+		Body: <textarea rows="8" cols="50" name="messageBody"></textarea><br/><br/>	
+		<input type="submit" value="Send">
+	</form>
 </body>
 </html>

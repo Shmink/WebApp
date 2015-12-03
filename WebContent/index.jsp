@@ -9,7 +9,7 @@
 <body>
 	<h1>Login</h1>
 	
-	<form action="Controller" method="GET">
+	<form action="Controller" method="POST">
 		<br>
 		Email: <input type="text" name="username"> <br/> <br/>
 		Password: <input type="password" name="password"> <br/>	<br/>

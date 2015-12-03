@@ -6,11 +6,15 @@ import java.util.Properties;
 import javax.mail.NoSuchProviderException;
 import javax.mail.Session;
 import javax.mail.Store;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import java.io.IOException;
@@ -64,6 +68,56 @@ public class Model extends HttpServlet
 			e.printStackTrace();
 		}
 		return true;
+	}
+	
+	public void sentMail(String username, String password, String recipient, String subject, String messageBody)
+	{
+		
+		String smtphost = "smtp.gmail.com";
+		// Set all Properties
+		// Get system properties
+		Properties props = System.getProperties();
+		props.put("mail.smtp.auth", "true");
+		props.put("mail.smtp.starttls.enable", "true");
+		props.put("mail.smtp.host", smtphost);
+		props.put("mail.smtp.port", "587");
+		
+		// Set Property with username and password for authentication  
+		props.setProperty("mail.user", username);
+		props.setProperty("mail.password", password);
+		
+		//Establish a mail session
+		Session session = Session.getDefaultInstance(props);
+		
+		try 
+		{
+
+			// Create a message
+			MimeMessage message = new MimeMessage(session);
+			message.setFrom(new InternetAddress(username));
+			message.setRecipients(Message.RecipientType.TO,
+					InternetAddress.parse(recipient));
+			message.setSubject(subject);
+			message.setText(messageBody);
+			
+			message.saveChanges();
+			
+			//Send the message by javax.mail.Transport .			
+			Transport tr = session.getTransport("smtp");			// Get Transport object from session		
+			tr.connect(smtphost, username, password); 				// We need to connect
+			tr.sendMessage(message, message.getAllRecipients()); 	// Send message
+
+			//Notify the user everything functioned fine.
+			System.out.println("Your mail has been sent.");
+
+		} 
+		catch (MessagingException e) 
+		{
+			throw new RuntimeException(e);
+		}
+	
+		
+		
 	}
 	
 	private static final long serialVersionUID = 1L;
