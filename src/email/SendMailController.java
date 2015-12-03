@@ -1,6 +1,9 @@
 package email;
 
 import java.io.IOException;
+
+import javax.mail.MessagingException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -45,11 +48,23 @@ public class SendMailController extends HttpServlet {
 		String subject = request.getParameter("subject");
 		String messageBody = request.getParameter("messageBody");
 		
+		RequestDispatcher dispatcher = null;
+		
 		Model model = new Model();
 		
-		model.sentMail(username, password, recipient, subject, messageBody);
+		System.out.println(model.sentMail(username, password, recipient, subject, messageBody));
+		
+		if(model.sentMail(username, password, recipient, subject, messageBody))
+		{
+			//dispatcher = request.getRequestDispatcher("emailSent.jsp");
+		}
+		else
+		{
+			dispatcher = request.getRequestDispatcher("errorSendMail.jsp");
+		}
 		
 		
+		dispatcher.forward(request, response);	
 		doGet(request, response);
 	}
 

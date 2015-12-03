@@ -16,7 +16,10 @@
 	-->
 	
 	<h2>Compose</h2><br/>
-	<input type="submit" value="Log out">	<br/><br/>
+	<form action="LogoutController" method="POST">
+		<input type="submit" value="Log out">	
+	</form>
+	<br/><br/>
 	<form action="SendMailController" method="POST">
 		Recipient: <input type="text" name="recipient"><br/><br/>
 		Subject: <input type="text" name="subject"><br/><br/>

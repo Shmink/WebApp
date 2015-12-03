@@ -4,18 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Email client</title>
+<title>Email Error</title>
 </head>
 <body>
-	<h3>Login</h3>
-	
-	<form action="Controller" method="POST">
-		<br>
-		
-		<label for="username">Id:</label> 
-		Email: <input type="text" name="username"> <br/> <br/>
-		Password: <input type="password" name="password"> <br/>	<br/>
-		<input type="submit" value="Login">	
+	<h3>We weren't able to send your message</h3>
+	<p>You can go back to try again or log out. Make sure your recipient has a valid email address.</p>
+	<form action="successfulLogin.jsp">
+		<input type="submit" value="Try again">
 	</form>
 </body>
 </html>

@@ -4,18 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Email client</title>
+<title>Logged Out</title>
 </head>
 <body>
-	<h3>Login</h3>
-	
-	<form action="Controller" method="POST">
-		<br>
-		
-		<label for="username">Id:</label> 
-		Email: <input type="text" name="username"> <br/> <br/>
-		Password: <input type="password" name="password"> <br/>	<br/>
-		<input type="submit" value="Login">	
-	</form>
+	<h3>You have been logged out</h3>
+		<form action="index.jsp">
+			<input type="submit" value="Go home">
+		</form>
 </body>
 </html>

@@ -40,6 +40,7 @@ public class Controller extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
@@ -62,6 +63,7 @@ public class Controller extends HttpServlet {
 		} 
 		catch (MessagingException e) 
 		{
+			dispatcher = request.getRequestDispatcher("index.jsp");
 			System.out.println("Something went wrong.");
 			e.printStackTrace();
 		}

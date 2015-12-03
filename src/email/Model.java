@@ -70,7 +70,7 @@ public class Model extends HttpServlet
 		return true;
 	}
 	
-	public void sentMail(String username, String password, String recipient, String subject, String messageBody)
+	public boolean sentMail(String username, String password, String recipient, String subject, String messageBody)
 	{
 		
 		String smtphost = "smtp.gmail.com";
@@ -109,14 +109,14 @@ public class Model extends HttpServlet
 
 			//Notify the user everything functioned fine.
 			System.out.println("Your mail has been sent.");
+			return true;
 
 		} 
 		catch (MessagingException e) 
 		{
-			throw new RuntimeException(e);
-		}
-	
-		
+			//throw new RuntimeException(e);
+			return false;
+		}		
 		
 	}
 	
