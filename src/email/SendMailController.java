@@ -52,11 +52,9 @@ public class SendMailController extends HttpServlet {
 		
 		Model model = new Model();
 		
-		System.out.println(model.sentMail(username, password, recipient, subject, messageBody));
-		
 		if(model.sentMail(username, password, recipient, subject, messageBody))
 		{
-			//dispatcher = request.getRequestDispatcher("emailSent.jsp");
+			dispatcher = request.getRequestDispatcher("emailSent.jsp");
 		}
 		else
 		{

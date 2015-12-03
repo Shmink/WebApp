@@ -114,8 +114,7 @@ public class Model extends HttpServlet
 		} 
 		catch (MessagingException e) 
 		{
-			//throw new RuntimeException(e);
-			return false;
+			throw new RuntimeException(e);
 		}		
 		
 	}
