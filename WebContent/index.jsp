@@ -4,9 +4,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Email client</title>
 </head>
 <body>
-	<p1>Hi there</p1>
+	<h1>Login</h1>
+	
+	<form action="Controller" method="GET">
+		<br>
+		Email: <input type="text" name="username"> <br/> <br/>
+		Password: <input type="password" name="password"> <br/>	<br/>
+		<input type="submit" value="Login">	
+	</form>
 </body>
 </html>
