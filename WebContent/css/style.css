@@ -2,6 +2,7 @@ body {
   background-color: rgb(50,100,150);
 }
 
+/*Moving the image to a nicer place.*/
 .img img {
   margin-top: 10%;
   margin-left: 38.5%;
@@ -9,17 +10,22 @@ body {
   height: 75px;
 }
 
-h2 {
+h2, p {
+  margin-top: 5%;
   font-family:sans-serif;
-  text-align: center;
-  height: 100px;
+  margin-left: 5%;
+  color: rgb(255,255,255);
 }
+
+/*All text fields have these properties.*/
 input[type=text] {
   padding:5px;
   border:2px solid rgb(75,100,150);
   -webkit-border-radius: 5px;
   border-radius: 5px;
 }
+
+/*All password fields have these properties*/
 input[type=password] {
   padding:5px;
   border:2px solid rgb(75,100,150);
@@ -27,6 +33,26 @@ input[type=password] {
   border-radius: 5px;
 }
 
+/*textarea's have these properties, similar theme running throughout.*/
+textarea {
+  padding:5px;
+  border:2px solid rgb(75,100,150);
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/*This css file isn't the best planned out, alot are copy and pastes with simple
+changes to keep a theme but customise each page.*/
+.enter input[type=text] {
+  margin-top: 2%;
+  width: 370px;
+  padding:5px;
+  border:2px solid rgb(75,100,150);
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/*login button is blue*/
 .login input[type=submit] {
   padding:5px 15px;
   background:rgb(50,100,150);
@@ -36,15 +62,55 @@ input[type=password] {
   border-radius: 5px;
 }
 
-.logout input[type=submit] {
+/*send email button is blue.*/
+.enter input[type=submit] {
   padding:5px 15px;
-  background: #CCCCCC;
+  background:rgb(50,100,150);
   border:0 none;
   cursor:pointer;
   -webkit-border-radius: 5px;
   border-radius: 5px;
 }
 
+/*logout button is grey.*/
+.logout input[type=submit] {
+  margin-left: 5%;
+  padding:5px 15px;
+  background: #CCCCCC;
+  border:0 none;
+  cursor:pointer;
+  -webkit-border-radius: 5px;
+}
+
+.errorSending input[type=submit] {
+  margin-left: 5%;
+  padding:5px 15px;
+  background: #CCCCCC;
+  border:0 none;
+  cursor:pointer;
+  -webkit-border-radius: 5px;
+}
+
+/*All buttons on the logout screen are grey.*/
+.logoutScreen input[type=submit] {
+  margin-left: 5%;
+  padding:5px 15px;
+  background: #CCCCCC;
+  border:0 none;
+  cursor:pointer;
+  -webkit-border-radius: 5px;
+}
+
+.menu input[type=submit] {
+  margin-left: 5%;
+  padding:5px 15px;
+  background: #CCCCCC;
+  border:0 none;
+  cursor:pointer;
+  -webkit-border-radius: 5px;
+}
+
+/*Makes the box shape around the login credentials.*/
 .login {
   background-color: #CCCCCC;
   text-align: center;
@@ -55,4 +121,15 @@ input[type=password] {
   width: 300px;
   margin: 0 auto;
   margin-top: 20px;
+}
+
+/*Makes the box shape around the login credentials.*/
+.enter {
+  text-align: center;
+  background-color: #CCCCCC;
+  border-radius: 5px;
+  box-shadow: 0 1px 4px rgb(0, 0, 0), 0 0 40px rgb(0, 0, 0);
+  height: 300px; /*height and width of box around form*/
+  width: 425px;
+  margin-left: 5%;
 }

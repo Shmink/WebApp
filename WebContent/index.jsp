@@ -6,12 +6,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Email client</title>
+<!-- Link the css -->
 <link type="text/css" rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
+	<!-- div class with image in -->
 	<div class="img">
 		<img src="images/banner.png" alt="Banner">
 	</div>
+	<!-- div class with text fields and a button in -->
 	<div class="login">
 		<form action="Controller" method="POST">
 			<br>

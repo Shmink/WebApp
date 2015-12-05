@@ -15,6 +15,11 @@ import javax.servlet.http.HttpSession;
  * Servlet implementation class Controller
  */
 @WebServlet("/Controller")
+/**
+ * This is the controller servlet for the login procedure.
+ * @author Tom Nicklin
+ *
+ */
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -30,9 +35,7 @@ public class Controller extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
    
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
-	{		
-		
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
@@ -40,18 +43,24 @@ public class Controller extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	
+	/**
+	 * doPost method in this class is used to log the user into their gmail account.
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		RequestDispatcher dispatcher = null;
 		
-		//System.out.println(username + " " + password);
-		
+		/* Created session so we can pass username and password from 
+		 * class to class without the user needing to input them again. 
+		 * Later we set those attributes.
+		 */
 		HttpSession session = request.getSession(true);
 		
 		Model model = new Model();
 		try 
 		{
+			//If the login goes smoothly we sent then open the successful login page.
 			if(model.loggedIn(username, password))
 			{
 				session.setAttribute("username", username);
@@ -59,6 +68,7 @@ public class Controller extends HttpServlet {
 				dispatcher = request.getRequestDispatcher("successfulLogin.jsp");
 			}
 		} 
+		//If something does go wrong however just reopen the login page.
 		catch (MessagingException e) 
 		{
 			dispatcher = request.getRequestDispatcher("index.jsp");

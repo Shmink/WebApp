@@ -5,12 +5,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Email Error</title>
+<!-- Link the css -->
+<link type="text/css" rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
-	<h3>We weren't able to send your message</h3>
+	<!-- Some text for the user -->
+	<h2>We weren't able to send your message</h2>
 	<p>You can go back to try again or log out. Make sure your recipient has a valid email address.</p>
-	<form action="successfulLogin.jsp">
-		<input type="submit" value="Try again">
-	</form>
+	<!-- div tag including form with a button -->
+	<div class="errorSending">
+		<form action="successfulLogin.jsp">
+			<input type="submit" value="Try again">
+		</form>
+	</div>
 </body>
 </html>

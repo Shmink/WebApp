@@ -14,6 +14,11 @@ import javax.servlet.http.HttpSession;
  * Servlet implementation class LogoutController
  */
 @WebServlet("/LogoutController")
+/**
+ * This servlet class is responsible for logging out the user.
+ * @author Tom Nicklin
+ *
+ */
 public class LogoutController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -22,7 +27,6 @@ public class LogoutController extends HttpServlet {
      */
     public LogoutController() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -36,7 +40,8 @@ public class LogoutController extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * doPost method in this class logs the user out by taking the session and terminating it
+	 * then open the successful logout page.
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();

@@ -5,16 +5,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Compose email</title>
+<!-- Link the css -->
 <link type="text/css" rel="stylesheet" href="css/style.css"/>
 </head>
 <body>	
+	<!-- Some text so the user knows what page they are on -->
 	<h2>Compose</h2><br/>
+	<!-- Form for logout button -->
 	<div class="logout">
 		<form action="LogoutController" method="POST">
 			<input type="submit" value="Log out">	
 		</form>
 	</div>
 	<br/><br/>
+	<!-- After some breaks we have the main form sending the emails -->
 	<div class="enter">
 		<form action="SendMailController" method="POST">
 			<input type="text" placeholder="To" name="recipient"><br/><br/>

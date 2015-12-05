@@ -5,19 +5,25 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Email Sent</title>
+<!-- Link css -->
+<link type="text/css" rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
-	<h3>Thank you, your mail has been sent.</h3>
-	<form action="index.jsp">
-		<input type="submit" value="Go home">
-	</form>
-	
-	<form action="LogoutController" method="POST">
-		<input type="submit" value="Log out">
-	</form>
-	
-	<form action="successfulLogin.jsp">
-		<input type="submit" value="Send another email">
-	</form>
+	<!-- Some text for the user -->
+	<h2>Thank you, your mail has been sent.</h2>
+	<!-- Create a div for styling and a load of forms for buttons to work -->
+	<div class="menu">
+		<form action="index.jsp">
+			<input type="submit" value="Go home">
+		</form>
+		<br/>
+		<form action="LogoutController" method="POST">
+			<input type="submit" value="Log out">
+		</form>
+		<br/>
+		<form action="successfulLogin.jsp">
+			<input type="submit" value="Send another email">
+		</form>
+	</div>
 </body>
 </html>

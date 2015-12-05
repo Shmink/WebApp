@@ -1,46 +1,30 @@
 package email;
 
-import java.io.IOException;
 import java.util.Properties;
-
 import javax.mail.NoSuchProviderException;
 import javax.mail.Session;
 import javax.mail.Store;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import javax.swing.JOptionPane;
-import javax.swing.JPasswordField;
-import java.io.IOException;
-import java.util.Properties;
-import javax.mail.Flags.Flag;
-import javax.mail.Folder;
-import javax.mail.BodyPart;
-import javax.mail.Flags;
 import javax.mail.Message;
 import javax.mail.MessagingException;
-import javax.mail.NoSuchProviderException;
-import javax.mail.Session;
-import javax.mail.Store;
-import javax.swing.JOptionPane;
-import javax.swing.JPasswordField;
-import javax.mail.Multipart;
-import com.sun.mail.imap.IMAPFolder;
-
-import com.sun.mail.imap.IMAPFolder;
 
 /**
- * Servlet implementation class Model
+ * This model class does most of the backend stuff for this whole application.
+ * @author Tom Nicklin
+ *
  */
-@WebServlet("/Model")
-public class Model extends HttpServlet 
+public class Model
 {
+	/**
+	 * loggedIn method takes the users credentials and then logs them in. If it all
+	 * goes smoothly then the method is going to return true so other procedures can continue.
+	 * @param username - Email of user.
+	 * @param password - password of user
+	 * @return true or false based on if the user logs in or not.
+	 * @throws MessagingException
+	 */
 	public boolean loggedIn(String username, String password) throws MessagingException
 	{
 		Store store = null;	        
@@ -70,6 +54,15 @@ public class Model extends HttpServlet
 		return true;
 	}
 	
+	/**
+	 * sentMail method send actual emails after getting passed everything it needs.
+	 * @param username - Email of user
+	 * @param password - password of user
+	 * @param recipient - recipient of the email
+	 * @param subject - the subject of the email
+	 * @param messageBody - the actual message of the email
+	 * @return true or false based on if the mail has been sent
+	 */
 	public boolean sentMail(String username, String password, String recipient, String subject, String messageBody)
 	{
 		
@@ -99,53 +92,18 @@ public class Model extends HttpServlet
 					InternetAddress.parse(recipient));
 			message.setSubject(subject);
 			message.setText(messageBody);
-			
+			// Save the changes of the mail
 			message.saveChanges();
 			
 			//Send the message by javax.mail.Transport .			
 			Transport tr = session.getTransport("smtp");			// Get Transport object from session		
 			tr.connect(smtphost, username, password); 				// We need to connect
 			tr.sendMessage(message, message.getAllRecipients()); 	// Send message
-
-			//Notify the user everything functioned fine.
-			System.out.println("Your mail has been sent.");
-			return true;
-
 		} 
 		catch (MessagingException e) 
-		{
-			throw new RuntimeException(e);
-		}		
-		
+		{	
+			return false;
+		}
+		return true;
 	}
-	
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Model() 
-    {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
-	{
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
-	{
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
-
 }

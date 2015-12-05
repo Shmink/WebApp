@@ -5,11 +5,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Logged Out</title>
+<!-- Link the css -->
+<link type="text/css" rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
-	<h3>You have been logged out</h3>
+	<!-- Some text for the user -->
+	<h2>You have been logged out</h2>
+	<!-- div including another form for another button -->
+	<div class="logoutScreen">
 		<form action="index.jsp">
 			<input type="submit" value="Go home">
 		</form>
+	</div>
 </body>
 </html>
