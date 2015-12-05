@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.swing.JOptionPane;
 
 /**
  * Servlet implementation class Controller
@@ -55,7 +54,6 @@ public class Controller extends HttpServlet {
 		{
 			if(model.loggedIn(username, password))
 			{
-				//System.out.println("Logged in!");
 				session.setAttribute("username", username);
 				session.setAttribute("password", password);
 				dispatcher = request.getRequestDispatcher("successfulLogin.jsp");
@@ -67,9 +65,7 @@ public class Controller extends HttpServlet {
 			System.out.println("Something went wrong.");
 			e.printStackTrace();
 		}
-		//System.out.println("It's all good!");
 		dispatcher.forward(request, response);	
-		
 		
 		doGet(request, response);
 	}
